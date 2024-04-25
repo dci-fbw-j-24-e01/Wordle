@@ -5,12 +5,69 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="dci.j24e01.wordle.wordle.WordleController">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="dci.j24e01.wordle.wordle.WordleController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <HBox alignment="CENTER" spacing="10.0" >
+        <TextField fx:id="input" layoutX="115.0" layoutY="78.0" maxWidth="150"/>
+        <Button fx:id="confirm" text="Enter" onAction="#onEnterButtonClick"/>
+    </HBox>
+    <HBox fx:id="Line0" alignment="CENTER" spacing="10.0" >
+        <children>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+        </children>
+    </HBox>
+    <HBox fx:id="Line1" alignment="CENTER" spacing="10.0" >
+        <children>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+        </children>
+    </HBox>
+    <HBox fx:id="Line2" alignment="CENTER" spacing="10.0" >
+        <children>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+        </children>
+    </HBox>
+    <HBox fx:id="Line3" alignment="CENTER" spacing="10.0" >
+        <children>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+        </children>
+    </HBox>
+    <HBox fx:id="Line4" alignment="CENTER" spacing="10.0" >
+        <children>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+        </children>
+    </HBox>
+    <HBox fx:id="Line5" alignment="CENTER" spacing="10.0" >
+        <children>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+            <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)"/>
+        </children>
+    </HBox>
 </VBox>
