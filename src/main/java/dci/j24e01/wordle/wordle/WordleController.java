@@ -1,16 +1,19 @@
 package dci.j24e01.wordle.wordle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+
+import java.net.URISyntaxException;
 
 
 public class WordleController {
 
     @FXML
     private TextField input;
-    @FXML
     private Game game;
     @FXML
     private HBox Line0;
@@ -24,6 +27,8 @@ public class WordleController {
     private HBox Line4;
     @FXML
     private HBox Line5;
+    @FXML
+    private Button giveup;
 
     private HBox[] boxes;
 
@@ -36,7 +41,7 @@ public class WordleController {
 
     @FXML
     public void onEnterButtonClick() {
-        String inputText = input.getText();
+        String inputText = input.getText().toLowerCase();
         boolean won = false;
         boolean success = game.checkWord(inputText);
         if (success) {
@@ -59,8 +64,25 @@ public class WordleController {
             game.endGame(false);
             reset();
             restart();
-
         }
+        if (line > 0) {
+            giveup.setVisible(true);
+        }
+    }
+    @FXML
+    public void onEnterButtonClick(ActionEvent ae){
+        onEnterButtonClick();
+    }
+
+    @FXML
+    public void letterButtonClicked() {
+        System.out.println("test");
+    }
+    @FXML
+    public void onGiveUpButtonClick() {
+        reset();
+        restart();
+        input.setText("");
     }
 
     public void restart() {
@@ -83,5 +105,13 @@ public class WordleController {
                 label.setText("");
             }
         }
+        giveup.setVisible(false);
+    }
+    @FXML
+    private void letterButtonClicked(ActionEvent event) throws URISyntaxException {
+
+        Button letterButton = (Button) event.getSource();
+        String letter = letterButton.getText();
+        input.setText(input.getText() + letter);
     }
 }

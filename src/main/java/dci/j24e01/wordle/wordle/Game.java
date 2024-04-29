@@ -7,9 +7,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class Game {
@@ -21,7 +20,7 @@ public class Game {
         words = new ArrayList<>();
         //secret = Dictionary.getRandomWord();
         secret = "ready";
-        secretArray = secret.toCharArray();
+
     }
 
     public boolean guessed(String word) {
@@ -44,6 +43,7 @@ public class Game {
     }
 
     public void setLabelsContent(String word, Label[] labels) {
+        secretArray = secret.toCharArray();
         char[] chars = word.toCharArray();
         isCorrectPosition(chars);
         contains(chars);
@@ -62,7 +62,6 @@ public class Game {
             }
 
         }
-        System.out.println(secret);
     }
 
     public void endGame(boolean won) {
@@ -95,25 +94,29 @@ public class Game {
         }
     }
 
-    private char[] isCorrectPosition (char[] chars) {
+    private void isCorrectPosition (char[] chars) {
+
         for (int i = 0; i < 5; i++) {
             if (chars[i] == secretArray[i]) {
                 chars[i] = ' ';
+                secretArray[i] = ' ';
             }
         }
-        return chars;
+        System.out.println(Arrays.toString(chars));
     }
 
-    private char[] contains(char[] chars) {
+    private void contains(char[] chars) {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
+                if (chars[i] == ' ') {
+                    continue;
+                }
                 if (chars[j] == secretArray[i]) {
                     chars[j] = '.';
                     break;
                 }
             }
         }
-        return chars;
     }
 }
