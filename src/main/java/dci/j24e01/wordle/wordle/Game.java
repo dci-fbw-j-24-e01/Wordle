@@ -73,14 +73,16 @@ public class Game {
         if (won) {
             alert.setTitle("You're a winner! Awesome!");
             alert.setHeaderText("Congratulations! You won!!!");
-            ImageView icon = new ImageView("file:src/main/java/dci/j24e01/wordle/wordle/resources/winner.png");
+            Image image = new Image(Wordle.class.getResource("/images/winner.png").toString());
+            ImageView icon = new ImageView(image);
             icon.setFitHeight(70);
             icon.setFitWidth(70);
             alert.setGraphic(icon);
         } else {
             alert.setTitle("Better luck next time!");
             alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
-            ImageView icon = new ImageView("file:src/main/java/dci/j24e01/wordle/wordle/resources/broken_cup.png");
+            Image image = new Image(Wordle.class.getResource("/images/broken_cup.png").toString());
+            ImageView icon = new ImageView(image);
             icon.setFitHeight(70);
             icon.setFitWidth(70);
             alert.setGraphic(icon);

@@ -14,8 +14,8 @@ public class Wordle extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Wordle.class.getResource("wordle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 350, 500);
         stage.setTitle("Wordle");
-        System.out.println(Wordle.class.getResourceAsStream("/logo.png"));
-        //stage.getIcons().add(new Image(Wordle.class.getResourceAsStream("/logo.png")));
+        Image image = new Image(Wordle.class.getResource("/images/test.png").toString());
+        stage.getIcons().add(image);
         stage.setScene(scene);
         stage.show();
     }
