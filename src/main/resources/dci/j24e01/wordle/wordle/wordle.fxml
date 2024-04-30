@@ -17,9 +17,10 @@
     <HBox fx:id="Line0" alignment="CENTER" spacing="10.0">
         <children>
             <Label minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin></Label>
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)" textAlignment="JUSTIFY" />
             <Label alignment="CENTER" contentDisplay="CENTER" minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)" textAlignment="JUSTIFY" />
             <Label alignment="CENTER" contentDisplay="CENTER" minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)" textAlignment="JUSTIFY" />
@@ -71,36 +72,42 @@
             <Label alignment="CENTER" contentDisplay="CENTER" minHeight="50" minWidth="50" style="-fx-background-color: rgb(219, 219, 217)" textAlignment="JUSTIFY" />
         </children>
     </HBox>
-    <HBox alignment="CENTER">
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">A</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">B</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">C</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">D</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">E</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">F</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">G</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">H</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">I</Button>
+    <HBox fx:id="buttonsrow0" alignment="CENTER">
+        <children>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">A</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">B</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">C</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">D</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">E</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">F</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">G</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">H</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">I</Button>
+        </children>
     </HBox>
-    <HBox alignment="CENTER">
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">J</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">K</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">L</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">M</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">N</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">O</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">P</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">Q</Button>
+    <HBox fx:id="buttonsrow1" alignment="CENTER">
+        <children>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">J</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">K</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">L</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">M</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">N</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">O</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">P</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">Q</Button>
+        </children>
     </HBox>
-    <HBox alignment="CENTER">
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">R</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">S</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">T</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">U</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">V</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">W</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">X</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">Y</Button>
-        <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">Z</Button>
+    <HBox fx:id="buttonsrow2" alignment="CENTER">
+        <children>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">R</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">S</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">T</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">U</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">V</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">W</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">X</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">Y</Button>
+            <Button minHeight="30" minWidth="45" onAction="#letterButtonClicked">Z</Button>
+        </children>
     </HBox>
 </VBox>

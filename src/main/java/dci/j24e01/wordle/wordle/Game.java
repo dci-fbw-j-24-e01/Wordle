@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Optional;
 
 public class Game {
@@ -18,9 +17,7 @@ public class Game {
 
     public Game() {
         words = new ArrayList<>();
-        //secret = Dictionary.getRandomWord();
-        secret = "ready";
-
+        secret = Dictionary.getRandomWord();
     }
 
     public boolean guessed(String word) {
@@ -52,13 +49,27 @@ public class Game {
             labels[i].setText(word.charAt(i) + "");
             labels[i].setStyle("");
             labels[i].setAlignment(Pos.CENTER);
-
+            int index = (int) secret.charAt(i) - 97;
+            String fontSize = " -fx-font-size:24;";
             if (chars[i] == ' ') {
-                labels[i].setStyle("-fx-background-color: rgb(0, 255, 0); -fx-font-size:24;");
+                String style = "-fx-background-color: rgb(0, 255, 0);";
+                labels[i].setStyle(style + fontSize);
+                WordleController.buttons[index].setStyle(style);
             } else if (chars[i] == '.') {
-                labels[i].setStyle("-fx-background-color: rgb(255, 200, 0); -fx-font-size:24;");
+                index = (int) word.charAt(i) - 97;
+                String style = "-fx-background-color: rgb(255, 200, 0);";
+                labels[i].setStyle(style + fontSize);
+                if (!WordleController.buttons[index].getStyle().equals("-fx-background-color: rgb(0, 255, 0);")) {
+                    WordleController.buttons[index].setStyle(style);
+                }
             } else {
-                labels[i].setStyle("-fx-background-color: rgb(175, 175, 175); -fx-font-size:24;");
+                index = (int) word.charAt(i) - 97;
+                String style = "-fx-background-color: rgb(175, 175, 175);";
+                labels[i].setStyle(style + fontSize);
+                if (!WordleController.buttons[index].getStyle().equals("-fx-background-color: rgb(0, 255, 0);") &&
+                        !WordleController.buttons[index].getStyle().equals("-fx-background-color: rgb(255, 200, 0);")) {
+                    WordleController.buttons[index].setStyle(style);
+                }
             }
 
         }
@@ -102,7 +113,6 @@ public class Game {
                 secretArray[i] = ' ';
             }
         }
-        System.out.println(Arrays.toString(chars));
     }
 
     private void contains(char[] chars) {
@@ -119,4 +129,5 @@ public class Game {
             }
         }
     }
+
 }

@@ -7,9 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-import java.net.URISyntaxException;
-
-
 public class WordleController {
 
     @FXML
@@ -28,6 +25,13 @@ public class WordleController {
     @FXML
     private HBox Line5;
     @FXML
+    private HBox buttonsrow0;
+    @FXML
+    private HBox buttonsrow1;
+    @FXML
+    private HBox buttonsrow2;
+    public static Button[] buttons;
+    @FXML
     private Button giveup;
 
     private HBox[] boxes;
@@ -37,6 +41,16 @@ public class WordleController {
     @FXML
     public void initialize() {
         restart();
+
+        for (int i = 0; i < 9; i++) {
+            buttons[i] = (Button) buttonsrow0.getChildren().get(i);
+        }
+        for (int i = 0; i < 8; i++) {
+            buttons[i + 9] = (Button) buttonsrow1.getChildren().get(i);
+        }
+        for (int i = 0; i < 9; i++) {
+            buttons[i + 17] = (Button) buttonsrow2.getChildren().get(i);
+        }
     }
 
     @FXML
@@ -57,7 +71,6 @@ public class WordleController {
                 reset();
                 restart();
             }
-
         }
         input.clear();
         if (line > 5 && !won) {
@@ -95,6 +108,8 @@ public class WordleController {
         boxes[4] = Line4;
         boxes[5] = Line5;
         line = 0;
+        buttons = new Button[26];
+
     }
 
     private void reset() {
@@ -105,13 +120,15 @@ public class WordleController {
                 label.setText("");
             }
         }
+        for (Button button : buttons) {
+            button.setStyle("");
+        }
         giveup.setVisible(false);
     }
     @FXML
-    private void letterButtonClicked(ActionEvent event) throws URISyntaxException {
-
+    private void letterButtonClicked(ActionEvent event) {
         Button letterButton = (Button) event.getSource();
-        String letter = letterButton.getText();
+        String letter = letterButton.getText().toLowerCase();
         input.setText(input.getText() + letter);
     }
 }
