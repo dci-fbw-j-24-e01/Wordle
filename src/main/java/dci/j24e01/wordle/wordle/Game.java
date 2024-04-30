@@ -11,13 +11,15 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class Game {
+
     ArrayList<String> words;
     String secret;
     char[] secretArray;
 
     public Game() {
         words = new ArrayList<>();
-        secret = Dictionary.getRandomWord();
+        //secret = Dictionary.getRandomWord();
+        secret = "ready";
     }
 
     public boolean guessed(String word) {
@@ -25,13 +27,12 @@ public class Game {
     }
 
     public boolean checkWord(String word) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if (word.length() != 5) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Enter a 5 letter word");
             alert.show();
             return false;
         } else if (!Dictionary.isValid(word)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Enter a valid word");
             alert.show();
             return false;
@@ -42,36 +43,36 @@ public class Game {
     public void setLabelsContent(String word, Label[] labels) {
         secretArray = secret.toCharArray();
         char[] chars = word.toCharArray();
+
         isCorrectPosition(chars);
         contains(chars);
+
+        String fontSize = " -fx-font-size:24;";
+        String GREEN = "-fx-background-color: rgb(0, 255, 0);";
+        String ORANGE = "-fx-background-color: rgb(255, 200, 0);";
+        String DARK_GREY = "-fx-background-color: rgb(175, 175, 175);";
 
         for (int i = 0; i < 5; i++) {
             labels[i].setText(word.charAt(i) + "");
             labels[i].setStyle("");
             labels[i].setAlignment(Pos.CENTER);
-            int index = (int) secret.charAt(i) - 97;
-            String fontSize = " -fx-font-size:24;";
+            int index = (int) word.charAt(i) - 97;
+
             if (chars[i] == ' ') {
-                String style = "-fx-background-color: rgb(0, 255, 0);";
-                labels[i].setStyle(style + fontSize);
-                WordleController.buttons[index].setStyle(style);
+                labels[i].setStyle(GREEN + fontSize);
+                WordleController.buttons[index].setStyle(GREEN);
             } else if (chars[i] == '.') {
-                index = (int) word.charAt(i) - 97;
-                String style = "-fx-background-color: rgb(255, 200, 0);";
-                labels[i].setStyle(style + fontSize);
-                if (!WordleController.buttons[index].getStyle().equals("-fx-background-color: rgb(0, 255, 0);")) {
-                    WordleController.buttons[index].setStyle(style);
+                labels[i].setStyle(ORANGE + fontSize);
+                if (!WordleController.buttons[index].getStyle().equals(GREEN)) {
+                    WordleController.buttons[index].setStyle(ORANGE);
                 }
             } else {
-                index = (int) word.charAt(i) - 97;
-                String style = "-fx-background-color: rgb(175, 175, 175);";
-                labels[i].setStyle(style + fontSize);
-                if (!WordleController.buttons[index].getStyle().equals("-fx-background-color: rgb(0, 255, 0);") &&
-                        !WordleController.buttons[index].getStyle().equals("-fx-background-color: rgb(255, 200, 0);")) {
-                    WordleController.buttons[index].setStyle(style);
+                labels[i].setStyle(DARK_GREY + fontSize);
+                if (!WordleController.buttons[index].getStyle().equals(GREEN) &&
+                        !WordleController.buttons[index].getStyle().equals(ORANGE)) {
+                    WordleController.buttons[index].setStyle(DARK_GREY);
                 }
             }
-
         }
     }
 
@@ -80,23 +81,20 @@ public class Game {
         ButtonType customYesButton = new ButtonType("Restart", ButtonBar.ButtonData.YES);
         ButtonType customNoButton = new ButtonType("Exit", ButtonBar.ButtonData.NO);
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", customYesButton, customNoButton);
+        Image image;
+
         if (won) {
             alert.setTitle("You're a winner! Awesome!");
             alert.setHeaderText("Congratulations! You won!!!");
-            Image image = new Image(Wordle.class.getResource("/images/winner.png").toString());
-            ImageView icon = new ImageView(image);
-            icon.setFitHeight(70);
-            icon.setFitWidth(70);
-            alert.setGraphic(icon);
+            image = new Image(Wordle.class.getResource("/images/winner.png").toString(), 70.0, 70.0, false,false);
         } else {
             alert.setTitle("Better luck next time!");
             alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
-            Image image = new Image(Wordle.class.getResource("/images/broken_cup.png").toString());
-            ImageView icon = new ImageView(image);
-            icon.setFitHeight(70);
-            icon.setFitWidth(70);
-            alert.setGraphic(icon);
+            image = new Image(Wordle.class.getResource("/images/broken_cup.png").toString(), 70.0, 70.0, false,false);
         }
+
+        ImageView icon = new ImageView(image);
+        alert.setGraphic(icon);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent()) {
             if (result.get() == customNoButton) {

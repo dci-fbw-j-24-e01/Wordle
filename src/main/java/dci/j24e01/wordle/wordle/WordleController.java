@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
+import java.util.Arrays;
+
 public class WordleController {
 
     @FXML
@@ -30,6 +32,7 @@ public class WordleController {
     private HBox buttonsrow1;
     @FXML
     private HBox buttonsrow2;
+
     public static Button[] buttons;
     @FXML
     private Button giveup;
@@ -42,15 +45,9 @@ public class WordleController {
     public void initialize() {
         restart();
 
-        for (int i = 0; i < 9; i++) {
-            buttons[i] = (Button) buttonsrow0.getChildren().get(i);
-        }
-        for (int i = 0; i < 8; i++) {
-            buttons[i + 9] = (Button) buttonsrow1.getChildren().get(i);
-        }
-        for (int i = 0; i < 9; i++) {
-            buttons[i + 17] = (Button) buttonsrow2.getChildren().get(i);
-        }
+        getButtonsArray(buttonsrow0, 0);
+        getButtonsArray(buttonsrow1, 9);
+        getButtonsArray(buttonsrow2, 17);
     }
 
     @FXML
@@ -59,12 +56,7 @@ public class WordleController {
         boolean won = false;
         boolean success = game.checkWord(inputText);
         if (success) {
-            Label[] labels = new Label[5];
-            for (int i = 0; i < 5; i++) {
-                Label label = (Label) boxes[line].getChildren().get(i);
-                labels[i] = label;
-            }
-            game.setLabelsContent(inputText, labels);
+            game.setLabelsContent(inputText, getLabelsArray());
             line++;
             if (game.guessed(inputText)) {
                 game.endGame(true);
@@ -82,15 +74,12 @@ public class WordleController {
             giveup.setVisible(true);
         }
     }
+
     @FXML
     public void onEnterButtonClick(ActionEvent ae){
         onEnterButtonClick();
     }
 
-    @FXML
-    public void letterButtonClicked() {
-        System.out.println("test");
-    }
     @FXML
     public void onGiveUpButtonClick() {
         reset();
@@ -125,10 +114,26 @@ public class WordleController {
         }
         giveup.setVisible(false);
     }
+
     @FXML
     private void letterButtonClicked(ActionEvent event) {
         Button letterButton = (Button) event.getSource();
         String letter = letterButton.getText().toLowerCase();
         input.setText(input.getText() + letter);
+    }
+
+    private Label[] getLabelsArray() {
+        Label[] labels = new Label[5];
+        for (int i = 0; i < 5; i++) {
+            Label label = (Label) boxes[line].getChildren().get(i);
+            labels[i] = label;
+        }
+        return labels;
+    }
+
+    private void getButtonsArray(HBox row, int startIndex) {
+        for (int i = 0; i < row.getChildren().size(); i++) {
+            buttons[i + startIndex] = (Button) row.getChildren().get(i);
+        }
     }
 }
