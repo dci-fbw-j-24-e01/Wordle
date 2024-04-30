@@ -18,8 +18,7 @@ public class Game {
 
     public Game() {
         words = new ArrayList<>();
-        //secret = Dictionary.getRandomWord();
-        secret = "ready";
+        secret = Dictionary.getRandomWord();
     }
 
     public boolean guessed(String word) {
@@ -40,7 +39,7 @@ public class Game {
         return Dictionary.words.contains(word);
     }
 
-    public void setLabelsContent(String word, Label[] labels) {
+    public void setContent(String word, Label[] labels) {
         secretArray = secret.toCharArray();
         char[] chars = word.toCharArray();
 

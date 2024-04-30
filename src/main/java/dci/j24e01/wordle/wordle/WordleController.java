@@ -7,13 +7,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-import java.util.Arrays;
-
 public class WordleController {
 
+
+    private final Game game = new Game();
+    public static Button[] buttons;
+    private HBox[] boxes;
+    private int line;
     @FXML
     private TextField input;
-    private Game game;
     @FXML
     private HBox Line0;
     @FXML
@@ -32,14 +34,8 @@ public class WordleController {
     private HBox buttonsrow1;
     @FXML
     private HBox buttonsrow2;
-
-    public static Button[] buttons;
     @FXML
     private Button giveup;
-
-    private HBox[] boxes;
-
-    private int line;
 
     @FXML
     public void initialize() {
@@ -54,16 +50,9 @@ public class WordleController {
     public void onEnterButtonClick() {
         String inputText = input.getText().toLowerCase();
         boolean won = false;
-        boolean success = game.checkWord(inputText);
-        if (success) {
-            game.setLabelsContent(inputText, getLabelsArray());
-            line++;
-            if (game.guessed(inputText)) {
-                game.endGame(true);
-                reset();
-                restart();
-            }
-        }
+
+        setOnSuccess(inputText);
+
         input.clear();
         if (line > 5 && !won) {
             game.endGame(false);
@@ -88,7 +77,6 @@ public class WordleController {
     }
 
     public void restart() {
-        game = new Game();
         boxes = new HBox[6];
         boxes[0] = Line0;
         boxes[1] = Line1;
@@ -103,11 +91,7 @@ public class WordleController {
 
     private void reset() {
         for (HBox box : boxes) {
-            for(int i = 0; i < 5; i++) {
-                Label label = (Label) box.getChildren().get(i);
-                label.setStyle("-fx-background-color: rgb(219, 219, 219);");
-                label.setText("");
-            }
+            resetBox(box);
         }
         for (Button button : buttons) {
             button.setStyle("");
@@ -134,6 +118,26 @@ public class WordleController {
     private void getButtonsArray(HBox row, int startIndex) {
         for (int i = 0; i < row.getChildren().size(); i++) {
             buttons[i + startIndex] = (Button) row.getChildren().get(i);
+        }
+    }
+
+    private void resetBox(HBox box) {
+        for(int i = 0; i < 5; i++) {
+            Label label = (Label) box.getChildren().get(i);
+            label.setStyle("-fx-background-color: rgb(219, 219, 219);");
+            label.setText("");
+        }
+    }
+
+    private void setOnSuccess(String inputText) {
+        if (game.checkWord(inputText)) {
+            game.setContent(inputText, getLabelsArray());
+            line++;
+            if (game.guessed(inputText)) {
+                game.endGame(true);
+                reset();
+                restart();
+            }
         }
     }
 }
