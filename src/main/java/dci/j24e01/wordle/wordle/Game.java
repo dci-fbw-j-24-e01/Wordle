@@ -47,9 +47,10 @@ public class Game {
         contains(chars);
 
         String fontSize = " -fx-font-size:24;";
-        String GREEN = "-fx-background-color: rgb(0, 255, 0);";
-        String ORANGE = "-fx-background-color: rgb(255, 200, 0);";
-        String DARK_GREY = "-fx-background-color: rgb(175, 175, 175);";
+        String GREEN = " -fx-background-color: rgb(0, 255, 0); -fx-background-radius: 5;";
+        String ORANGE = " -fx-background-color: rgb(255, 200, 0); -fx-background-radius: 5;";
+        String DARK_GREY = " -fx-background-color: rgb(175, 175, 175); -fx-background-radius: 5;";
+        String setBorder = " -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;";
 
         for (int i = 0; i < 5; i++) {
             labels[i].setText(word.charAt(i) + "");
@@ -59,17 +60,17 @@ public class Game {
 
             if (chars[i] == ' ') {
                 labels[i].setStyle(GREEN + fontSize);
-                WordleController.buttons[index].setStyle(GREEN);
+                WordleController.buttons[index].setStyle(GREEN + setBorder);
             } else if (chars[i] == '.') {
                 labels[i].setStyle(ORANGE + fontSize);
                 if (!WordleController.buttons[index].getStyle().equals(GREEN)) {
-                    WordleController.buttons[index].setStyle(ORANGE);
+                    WordleController.buttons[index].setStyle(ORANGE + setBorder);
                 }
             } else {
                 labels[i].setStyle(DARK_GREY + fontSize);
                 if (!WordleController.buttons[index].getStyle().equals(GREEN) &&
                         !WordleController.buttons[index].getStyle().equals(ORANGE)) {
-                    WordleController.buttons[index].setStyle(DARK_GREY);
+                    WordleController.buttons[index].setStyle(DARK_GREY + setBorder);
                 }
             }
         }

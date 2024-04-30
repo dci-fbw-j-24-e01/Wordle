@@ -74,40 +74,40 @@
     </HBox>
     <HBox fx:id="buttonsrow0" alignment="CENTER">
         <children>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">A</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">B</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">C</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">D</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">E</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">F</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">G</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">H</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">I</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">A</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">B</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">C</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">D</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">E</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">F</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">G</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">H</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">I</Button>
         </children>
     </HBox>
     <HBox fx:id="buttonsrow1" alignment="CENTER">
         <children>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">J</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">K</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">L</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">M</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">N</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">O</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">P</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">Q</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">J</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">K</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">L</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">M</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">N</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">O</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">P</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">Q</Button>
         </children>
     </HBox>
     <HBox fx:id="buttonsrow2" alignment="CENTER">
         <children>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">R</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">S</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">T</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">U</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">V</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">W</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">X</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">Y</Button>
-            <Button focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">Z</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">R</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">S</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">T</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">U</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">V</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">W</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">X</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">Y</Button>
+            <Button style=" -fx-border-color: rgb(150, 150, 150); -fx-border-radius: 5;" focusTraversable="false" minHeight="30" minWidth="45" onAction="#letterButtonClicked">Z</Button>
         </children>
     </HBox>
 </VBox>

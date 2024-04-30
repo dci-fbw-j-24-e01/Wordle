@@ -11,7 +11,7 @@ public class WordleController {
 
 
     private final Game game = new Game();
-    public static Button[] buttons;
+    public static Button[] buttons = new Button[26];
     private HBox[] boxes;
     private int line;
     @FXML
@@ -85,8 +85,6 @@ public class WordleController {
         boxes[4] = Line4;
         boxes[5] = Line5;
         line = 0;
-        buttons = new Button[26];
-
     }
 
     private void reset() {
