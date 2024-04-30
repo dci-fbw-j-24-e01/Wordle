@@ -19,6 +19,7 @@ public class Game {
     public Game() {
         words = new ArrayList<>();
         secret = Dictionary.getRandomWord();
+        System.out.println(secret);
     }
 
     public boolean guessed(String word) {
@@ -87,10 +88,12 @@ public class Game {
             alert.setTitle("You're a winner! Awesome!");
             alert.setHeaderText("Congratulations! You won!!!");
             image = new Image(Wordle.class.getResource("/images/winner.png").toString(), 70.0, 70.0, false,false);
+            WordleController.wins++;
         } else {
             alert.setTitle("Better luck next time!");
             alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
             image = new Image(Wordle.class.getResource("/images/broken_cup.png").toString(), 70.0, 70.0, false,false);
+            WordleController.loses++;
         }
 
         ImageView icon = new ImageView(image);

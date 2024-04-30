@@ -4,16 +4,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class WordleController {
 
 
-    private final Game game = new Game();
+    private Game game;
     public static Button[] buttons = new Button[26];
     private HBox[] boxes;
     private int line;
+    public static int wins;
+    public static int loses;
+
     @FXML
     private TextField input;
     @FXML
@@ -36,6 +40,8 @@ public class WordleController {
     private HBox buttonsrow2;
     @FXML
     private Button giveup;
+    @FXML
+    private ProgressBar winrate;
 
     @FXML
     public void initialize() {
@@ -62,10 +68,11 @@ public class WordleController {
         if (line > 0) {
             giveup.setVisible(true);
         }
+
     }
 
     @FXML
-    public void onEnterButtonClick(ActionEvent ae){
+    public void onEnterButtonClick(ActionEvent ae) {
         onEnterButtonClick();
     }
 
@@ -77,6 +84,7 @@ public class WordleController {
     }
 
     public void restart() {
+        game = new Game();
         boxes = new HBox[6];
         boxes[0] = Line0;
         boxes[1] = Line1;
@@ -95,6 +103,7 @@ public class WordleController {
             button.setStyle("");
         }
         giveup.setVisible(false);
+        updateProgressBar();
     }
 
     @FXML
@@ -137,5 +146,10 @@ public class WordleController {
                 restart();
             }
         }
+    }
+
+    public void updateProgressBar() {
+        double progress = 100.0 / (wins + loses) * wins / 100;
+        winrate.setProgress(progress);
     }
 }
