@@ -104,7 +104,6 @@ public class Game {
     }
 
     private void isCorrectPosition (char[] chars) {
-
         for (int i = 0; i < 5; i++) {
             if (chars[i] == secretArray[i]) {
                 chars[i] = ' ';
@@ -114,7 +113,6 @@ public class Game {
     }
 
     private void contains(char[] chars) {
-
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 if (chars[i] == ' ') {
