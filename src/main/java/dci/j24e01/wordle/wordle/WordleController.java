@@ -9,7 +9,6 @@ import javafx.scene.paint.Color;
 
 public class WordleController {
 
-
     private Game game;
     public static Button[] buttons = new Button[26];
     private HBox[] boxes;
@@ -33,11 +32,11 @@ public class WordleController {
     @FXML
     private HBox Line5;
     @FXML
-    private HBox buttonsrow0;
+    private HBox buttonsRow0;
     @FXML
-    private HBox buttonsrow1;
+    private HBox buttonsRow1;
     @FXML
-    private HBox buttonsrow2;
+    private HBox buttonsRow2;
     @FXML
     private Button giveup;
     @FXML
@@ -49,15 +48,16 @@ public class WordleController {
 
     @FXML
     public void initialize() {
-        restart();
 
-        getButtonsArray(buttonsrow0, 0);
-        getButtonsArray(buttonsrow1, 9);
-        getButtonsArray(buttonsrow2, 17);
+        restart();
+        getButtonsArray(buttonsRow0, 0);
+        getButtonsArray(buttonsRow1, 9);
+        getButtonsArray(buttonsRow2, 17);
     }
 
     @FXML
     public void onEnterButtonClick() {
+
         String inputText = input.getText().toLowerCase();
         boolean won = false;
 

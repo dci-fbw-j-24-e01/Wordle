@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Wordle extends Application {
@@ -14,7 +13,7 @@ public class Wordle extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Wordle.class.getResource("wordle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 450, 670);
         stage.setTitle("Wordle");
-        Image image = new Image(Wordle.class.getResource("/images/test.png").toString());
+        Image image = new Image(String.valueOf(Wordle.class.getResource("/images/test.png")));
         stage.getIcons().add(image);
         stage.setResizable(false);
         stage.setScene(scene);

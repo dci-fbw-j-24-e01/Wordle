@@ -86,11 +86,11 @@ public class Game {
         if (won) {
             alert.setTitle("You're a winner! Awesome!");
             alert.setHeaderText("Congratulations! You won!!!");
-            image = new Image(Wordle.class.getResource("/images/winner.png").toString(), 70.0, 70.0, false,false);
+            image = new Image(String.valueOf(Wordle.class.getResource("/images/winner.png")), 70.0, 70.0, false,false);
         } else {
             alert.setTitle("Better luck next time!");
             alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
-            image = new Image(Wordle.class.getResource("/images/broken_cup.png").toString(), 70.0, 70.0, false,false);
+            image = new Image(String.valueOf(Wordle.class.getResource("/images/broken_cup.png")), 70.0, 70.0, false,false);
         }
         alert.setContentText("Your winrate is " + WordleController.rate + "%");
         ImageView icon = new ImageView(image);
