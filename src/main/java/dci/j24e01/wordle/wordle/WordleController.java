@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
+
 
 public class WordleController {
 
@@ -40,8 +40,6 @@ public class WordleController {
     private HBox buttonsrow2;
     @FXML
     private Button giveup;
-    @FXML
-    private ProgressIndicator winrate;
     @FXML
     private Label losesLabel;
     @FXML

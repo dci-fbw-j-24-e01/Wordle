@@ -19,7 +19,6 @@ public class Game {
     public Game() {
         words = new ArrayList<>();
         secret = Dictionary.getRandomWord();
-        secret = "input";
     }
 
     public boolean guessed(String word) {
