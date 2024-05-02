@@ -27,12 +27,16 @@ public class Game {
 
     public boolean checkWord(String word) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Warning");
+        Image image = new Image(String.valueOf(Wordle.class.getResource("/images/wordle.png")));
+        ImageView icon = new ImageView(image);
+        alert.setGraphic(icon);
         if (word.length() != 5) {
-            alert.setContentText("Enter a 5 letter word");
+            alert.setHeaderText("Enter a 5 letter word");
             alert.show();
             return false;
         } else if (!Dictionary.isValid(word)) {
-            alert.setContentText("Enter a valid word");
+            alert.setHeaderText("Enter a valid word");
             alert.show();
             return false;
         }
