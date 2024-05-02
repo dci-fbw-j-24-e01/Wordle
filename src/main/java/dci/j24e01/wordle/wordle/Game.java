@@ -19,6 +19,7 @@ public class Game {
     public Game() {
         words = new ArrayList<>();
         secret = Dictionary.getRandomWord();
+        secret = "input";
     }
 
     public boolean guessed(String word) {
@@ -56,7 +57,7 @@ public class Game {
             labels[i].setText(word.charAt(i) + "");
             labels[i].setStyle("");
             labels[i].setAlignment(Pos.CENTER);
-            int index = (int) word.charAt(i) - 97;    // ASCII value - 97 = index of the character in the array
+            int index = (int) word.charAt(i) - 97;    // ASCII value - 97 = index of the button in the array
 
             if (chars[i] == ' ') {
                 labels[i].setStyle(GREEN + fontSize);
@@ -87,14 +88,12 @@ public class Game {
             alert.setTitle("You're a winner! Awesome!");
             alert.setHeaderText("Congratulations! You won!!!");
             image = new Image(Wordle.class.getResource("/images/winner.png").toString(), 70.0, 70.0, false,false);
-            WordleController.wins++;
         } else {
             alert.setTitle("Better luck next time!");
             alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
             image = new Image(Wordle.class.getResource("/images/broken_cup.png").toString(), 70.0, 70.0, false,false);
-            WordleController.loses++;
         }
-
+        alert.setContentText("Your winrate is " + WordleController.rate + "%");
         ImageView icon = new ImageView(image);
         alert.setGraphic(icon);
         Optional<ButtonType> result = alert.showAndWait();

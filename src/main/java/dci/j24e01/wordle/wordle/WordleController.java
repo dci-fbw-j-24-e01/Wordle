@@ -16,6 +16,7 @@ public class WordleController {
     private int line;
     public static int wins;
     public static int loses;
+    public static int rate;
 
     @FXML
     private TextField input;
@@ -66,6 +67,8 @@ public class WordleController {
 
         input.clear();
         if (line > 5 && !won) {
+            loses++;
+            updateLabels();
             game.endGame(false);
             reset();
             restart();
@@ -85,10 +88,10 @@ public class WordleController {
     public void onGiveUpButtonClick() {
         reset();
         restart();
-
-        input.setText("");
         loses++;
         updateLabels();
+        game.endGame(false);
+        input.setText("");
     }
 
     public void restart() {
@@ -149,6 +152,8 @@ public class WordleController {
             game.setContent(inputText, getLabelsArray());
             line++;
             if (game.guessed(inputText)) {
+                wins++;
+                updateLabels();
                 game.endGame(true);
                 reset();
                 restart();
@@ -158,7 +163,8 @@ public class WordleController {
 
     public void updateLabels () {
         double progress = 100.0 / (wins + loses) * wins / 100;
-        winrateLabel.setText("Winrate: " + (int) progress * 100 + "%");
+        rate = (int) (progress * 100);
+        winrateLabel.setText("Winrate: " + rate + "%");
         winsLabel.setText("Wins: " + wins);
         losesLabel.setText("Loses: " + loses);
         if (progress < 0.3) {
