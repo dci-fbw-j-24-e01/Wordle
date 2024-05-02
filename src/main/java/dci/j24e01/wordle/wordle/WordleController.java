@@ -2,11 +2,10 @@ package dci.j24e01.wordle.wordle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 public class WordleController {
 
@@ -41,7 +40,13 @@ public class WordleController {
     @FXML
     private Button giveup;
     @FXML
-    private ProgressBar winrate;
+    private ProgressIndicator winrate;
+    @FXML
+    private Label losesLabel;
+    @FXML
+    private Label winsLabel;
+    @FXML
+    private Label winrateLabel;
 
     @FXML
     public void initialize() {
@@ -80,7 +85,10 @@ public class WordleController {
     public void onGiveUpButtonClick() {
         reset();
         restart();
+
         input.setText("");
+        loses++;
+        updateLabels();
     }
 
     public void restart() {
@@ -103,7 +111,7 @@ public class WordleController {
             button.setStyle("");
         }
         giveup.setVisible(false);
-        updateProgressBar();
+        updateLabels();
     }
 
     @FXML
@@ -148,8 +156,17 @@ public class WordleController {
         }
     }
 
-    public void updateProgressBar() {
+    public void updateLabels () {
         double progress = 100.0 / (wins + loses) * wins / 100;
-        winrate.setProgress(progress);
+        winrateLabel.setText("Winrate: " + (int) progress * 100 + "%");
+        winsLabel.setText("Wins: " + wins);
+        losesLabel.setText("Loses: " + loses);
+        if (progress < 0.3) {
+            winrateLabel.setTextFill(Color.RED);
+        } else if (progress < 0.65) {
+            winrateLabel.setTextFill(Color.DARKORANGE);
+        } else {
+            winrateLabel.setTextFill(Color.GREEN);
+        }
     }
 }

@@ -19,7 +19,6 @@ public class Game {
     public Game() {
         words = new ArrayList<>();
         secret = Dictionary.getRandomWord();
-        System.out.println(secret);
     }
 
     public boolean guessed(String word) {
@@ -57,7 +56,7 @@ public class Game {
             labels[i].setText(word.charAt(i) + "");
             labels[i].setStyle("");
             labels[i].setAlignment(Pos.CENTER);
-            int index = (int) word.charAt(i) - 97;
+            int index = (int) word.charAt(i) - 97;    // ASCII value - 97 = index of the character in the array
 
             if (chars[i] == ' ') {
                 labels[i].setStyle(GREEN + fontSize);
