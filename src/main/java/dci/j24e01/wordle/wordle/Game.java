@@ -39,7 +39,7 @@ public class Game {
         return Dictionary.words.contains(word);
     }
 
-    public void setContent(String word, Label[] labels) {
+    public void setLabelsAndButtonsContent(String word, Label[] labels) {
         secretArray = secret.toCharArray();
         char[] chars = word.toCharArray();
 
@@ -76,33 +76,6 @@ public class Game {
         }
     }
 
-    public void endGame(boolean won) {
-
-        ButtonType customYesButton = new ButtonType("Restart", ButtonBar.ButtonData.YES);
-        ButtonType customNoButton = new ButtonType("Exit", ButtonBar.ButtonData.NO);
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", customYesButton, customNoButton);
-        Image image;
-
-        if (won) {
-            alert.setTitle("You're a winner! Awesome!");
-            alert.setHeaderText("Congratulations! You won!!!");
-            image = new Image(String.valueOf(Wordle.class.getResource("/images/winner.png")), 70.0, 70.0, false,false);
-        } else {
-            alert.setTitle("Better luck next time!");
-            alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
-            image = new Image(String.valueOf(Wordle.class.getResource("/images/broken_cup.png")), 70.0, 70.0, false,false);
-        }
-        alert.setContentText("Your winrate is " + WordleController.rate + "%");
-        ImageView icon = new ImageView(image);
-        alert.setGraphic(icon);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent()) {
-            if (result.get() == customNoButton) {
-                System.exit(0);
-            }
-        }
-    }
-
     private void isCorrectPosition (char[] chars) {
         for (int i = 0; i < 5; i++) {
             if (chars[i] == secretArray[i]) {
@@ -125,5 +98,33 @@ public class Game {
             }
         }
     }
+
+    public void endGame(boolean won) {
+
+        ButtonType customYesButton = new ButtonType("Restart", ButtonBar.ButtonData.YES);
+        ButtonType customNoButton = new ButtonType("Exit", ButtonBar.ButtonData.NO);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "", customYesButton, customNoButton);
+        Image image;
+
+        if (won) {
+            alert.setTitle("You're a winner! Awesome!");
+            alert.setHeaderText("Congratulations! You won!!!");
+            image = new Image(String.valueOf(Wordle.class.getResource("/images/win.png")), 70.0, 70.0, false,false);
+        } else {
+            alert.setTitle("Better luck next time!");
+            alert.setHeaderText("Whooops... You Lose :( \nThe secret word was \"" + secret + "\".");
+            image = new Image(String.valueOf(Wordle.class.getResource("/images/lose.png")), 70.0, 70.0, false,false);
+        }
+        alert.setContentText("Your winrate is " + WordleController.rate + "%");
+        ImageView icon = new ImageView(image);
+        alert.setGraphic(icon);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent()) {
+            if (result.get() == customNoButton) {
+                System.exit(0);
+            }
+        }
+    }
+
 
 }

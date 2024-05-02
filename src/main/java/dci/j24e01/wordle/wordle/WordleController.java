@@ -38,13 +38,13 @@ public class WordleController {
     @FXML
     private HBox buttonsRow2;
     @FXML
-    private Button giveup;
+    private Button giveUp;
     @FXML
     private Label losesLabel;
     @FXML
     private Label winsLabel;
     @FXML
-    private Label winrateLabel;
+    private Label winRateLabel;
 
     @FXML
     public void initialize() {
@@ -56,7 +56,7 @@ public class WordleController {
     }
 
     @FXML
-    public void onEnterButtonClick() {
+    public void onEnterClick() {
 
         String inputText = input.getText().toLowerCase();
         boolean won = false;
@@ -66,20 +66,21 @@ public class WordleController {
         input.clear();
         if (line > 5 && !won) {
             loses++;
-            updateLabels();
+            updateWinRate();
             game.endGame(false);
             reset();
             restart();
         }
         if (line > 0) {
-            giveup.setVisible(true);
+            giveUp.setVisible(true);
         }
-
     }
 
     @FXML
-    public void onEnterButtonClick(ActionEvent ae) {
-        onEnterButtonClick();
+    private void letterButtonClicked(ActionEvent event) {
+        Button letterButton = (Button) event.getSource();
+        String letter = letterButton.getText().toLowerCase();
+        input.setText(input.getText() + letter);
     }
 
     @FXML
@@ -87,7 +88,7 @@ public class WordleController {
         reset();
         restart();
         loses++;
-        updateLabels();
+        updateWinRate();
         game.endGame(false);
         input.setText("");
     }
@@ -111,15 +112,16 @@ public class WordleController {
         for (Button button : buttons) {
             button.setStyle("");
         }
-        giveup.setVisible(false);
-        updateLabels();
+        giveUp.setVisible(false);
+        updateWinRate();
     }
 
-    @FXML
-    private void letterButtonClicked(ActionEvent event) {
-        Button letterButton = (Button) event.getSource();
-        String letter = letterButton.getText().toLowerCase();
-        input.setText(input.getText() + letter);
+    private void resetBox(HBox box) {
+        for(int i = 0; i < 5; i++) {
+            Label label = (Label) box.getChildren().get(i);
+            label.setStyle("-fx-background-color: rgb(219, 219, 219);");
+            label.setText("");
+        }
     }
 
     private Label[] getLabelsArray() {
@@ -137,21 +139,13 @@ public class WordleController {
         }
     }
 
-    private void resetBox(HBox box) {
-        for(int i = 0; i < 5; i++) {
-            Label label = (Label) box.getChildren().get(i);
-            label.setStyle("-fx-background-color: rgb(219, 219, 219);");
-            label.setText("");
-        }
-    }
-
     private void setOnSuccess(String inputText) {
         if (game.checkWord(inputText)) {
-            game.setContent(inputText, getLabelsArray());
+            game.setLabelsAndButtonsContent(inputText, getLabelsArray());
             line++;
             if (game.guessed(inputText)) {
                 wins++;
-                updateLabels();
+                updateWinRate();
                 game.endGame(true);
                 reset();
                 restart();
@@ -159,18 +153,17 @@ public class WordleController {
         }
     }
 
-    public void updateLabels () {
-        double progress = 100.0 / (wins + loses) * wins / 100;
-        rate = (int) (progress * 100);
-        winrateLabel.setText("Winrate: " + rate + "%");
+    public void updateWinRate() {
+        rate = (int) (100.0 / (wins + loses) * wins);
+        winRateLabel.setText("Winrate: " + rate + "%");
         winsLabel.setText("Wins: " + wins);
         losesLabel.setText("Loses: " + loses);
-        if (progress < 0.3) {
-            winrateLabel.setTextFill(Color.RED);
-        } else if (progress < 0.65) {
-            winrateLabel.setTextFill(Color.DARKORANGE);
+        if (rate < 30) {
+            winRateLabel.setTextFill(Color.RED);
+        } else if (rate < 65) {
+            winRateLabel.setTextFill(Color.DARKORANGE);
         } else {
-            winrateLabel.setTextFill(Color.GREEN);
+            winRateLabel.setTextFill(Color.GREEN);
         }
     }
 }

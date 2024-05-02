@@ -13,7 +13,7 @@ public class Wordle extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Wordle.class.getResource("wordle.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 450, 670);
         stage.setTitle("Wordle");
-        Image image = new Image(String.valueOf(Wordle.class.getResource("/images/test.png")));
+        Image image = new Image(String.valueOf(Wordle.class.getResource("/images/wordle.png")));
         stage.getIcons().add(image);
         stage.setResizable(false);
         stage.setScene(scene);
