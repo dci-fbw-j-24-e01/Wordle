@@ -16,6 +16,7 @@ public class Wordle extends Application {
         stage.setTitle("Wordle");
         Image image = new Image(Wordle.class.getResource("/images/test.png").toString());
         stage.getIcons().add(image);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
